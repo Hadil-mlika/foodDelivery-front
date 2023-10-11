@@ -6,7 +6,8 @@ import { Restaurant } from 'src/app/shared/models/Restaurant';
 @Component({
   selector: 'app-restaurant-listing',
   templateUrl: './restaurant-listing.component.html',
-  styleUrls: ['./restaurant-listing.component.css']
+  styleUrls: ['./restaurant-listing.component.css',
+ ]
 })
 export class RestaurantListingComponent {
 

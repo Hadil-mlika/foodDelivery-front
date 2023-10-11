@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FoodCataloguePage } from 'src/app/shared/models/foodCataloguePage';
 import { FoodItem } from 'src/app/shared/models/foodItem';
 import { FooditemService } from '../service/fooditem.service';
+import { Restaurant } from 'src/app/shared/models/Restaurant';
 
 @Component({
   selector: 'app-food-catalogue',
@@ -75,14 +76,34 @@ export class FoodCatalogueComponent {
 
   onCheckOut() {
 
-    // Initialiser l'ordre de résumé
     this.orderSummary = {
-      foodItemList: this.foodItemCart,  // Utilisez this.foodItemCart
-      restaurant: this.foodItemResponse.restaurant
+      foodItemsList: [],
+      restaurant:  {} as Restaurant // Initialisation avec un objet vide de type Restaurant
     };
-  
-    // Naviguer vers la page de résumé de commande avec les données d'ordre
-    this.router.navigate(['/orderSummary'], { queryParams: { data: JSON.stringify(this.orderSummary) } });
+    // this.orderSummary.foodItemsList = this.foodItemResponse.foodItemsList;
+    // this.orderSummary.restaurant = this.foodItemResponse.restaurant;
+    // console.log(this.orderSummary)
+    // this.router.navigate(['/orderSummary'], { queryParams: { data: JSON.stringify(this.orderSummary) } });
+
+
+
+
+    
+    // Filtrer les foodItems dont la quantité est > 0
+    const foodItemsWithQuantity = this.foodItemResponse.foodItemsList.filter(
+      (foodItem) => foodItem.quantity > 0
+    );
+
+    // Affecter les foodItems filtrés et le restaurant à orderSummary
+    this.orderSummary.foodItemsList = foodItemsWithQuantity;
+    this.orderSummary.restaurant = this.foodItemResponse.restaurant;
+
+    console.log(this.orderSummary);
+
+    // Naviguer vers '/orderSummary' avec les données filtrées
+    this.router.navigate(['/orderSummary'], {
+      queryParams: { data: JSON.stringify(this.orderSummary) },
+    });
   }
   
 

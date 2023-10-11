@@ -6,14 +6,31 @@
           [src]="'assets/restaurants-pics/paul/' + getRandomImage()"
           alt="Restaurant 1"
         /> -->
-        <img [src]="getRestaurantImagePath(restaurant)" alt="Restaurant Image" />
-
+        <img
+          [src]="getRestaurantImagePath(restaurant)"
+          alt="Restaurant Image"
+        />
       </div>
       <div class="restaurant-details">
         <h3 class="restaurant-name">{{ restaurant.name }}</h3>
         <div class="restaurant-rating">
-          <span class="rating"><i class="fa fa-star"></i>4.5</span>
-          <span class="rating-count">(500+)</span>
+          <div class="rating">
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+            <span class="star">&#9733;</span>
+          </div>
+          <div class="restaurant-location">
+            <img
+              class="ml-1.5 color-secondary small-icon"
+              src="assets/map.svg"
+              alt="Map icon"
+            />
+            <div class="address">{{ restaurant.address }}</div>
+          </div>
+
+          <!-- <span class="rating-count">(500+)</span> -->
         </div>
 
         <button

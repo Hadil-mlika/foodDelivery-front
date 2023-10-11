@@ -10,6 +10,8 @@ import { HeaderComponent } from './header/components/header.component';
 import { HeaderModule } from './header/header.module';
 
 import { FoodCatalogueModule } from './food-catalogue/food-catalogue.module';
+import { OrderSummaryComponent } from './order-summary/component/order-summary.component';
+import { OrderSummaryModule } from './order-summary/order-summary.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +25,7 @@ import { FoodCatalogueModule } from './food-catalogue/food-catalogue.module';
     HttpClientModule,
     HeaderModule,
     FoodCatalogueModule,
+    OrderSummaryModule
   ],
   providers: [],
   bootstrap: [AppComponent],
