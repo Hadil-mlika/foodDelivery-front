@@ -24,7 +24,7 @@ export class OrderSummaryComponent {
     const data = this.route.snapshot.queryParams['data'];
 
     this.obj = JSON.parse(data);
-    this.obj.userId = 1;
+    this.obj.userId = 2;
 
     this.orderSummary = this.obj;
     console.log(data, this.orderSummary);
